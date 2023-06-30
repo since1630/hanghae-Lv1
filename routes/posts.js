@@ -86,7 +86,7 @@ router.put("/:_postId", async (req, res) => {
     if (posts && db_password === password) {
       await Posts.updateOne(
         { _id: _postId },
-        { $set: { password, title, content } }
+        { $set: { title, content } }
       );
       return res.status(204).json({ message: "게시글을 수정하였습니다" }); // 상태코드 수정 201 -> 204
     } else if (!posts.length) {
